@@ -1,13 +1,13 @@
 <template>
   <div class="parent">
     <div class="allWrapper">
-      <h1>ToDo</h1>
+      <h1 class="title">ToDo</h1>
       <ul class="toDoListWrapper">
         <li class="toDoThing">
-          <label> 期末試験 <input type="checkbox" name="toDo" class="checkbox" /> </label>
+          <label class="task"> 期末試験 <input type="checkbox" name="toDo" class="checkbox" /> </label>
         </li>
         <li class="toDoThing">
-          <label> 宿題 <input type="checkbox" name="toDo" class="checkbox" /> </label>
+          <label class="task"> 宿題 <input type="checkbox" name="toDo" class="checkbox" /> </label>
         </li>
       </ul>
       <div class="Form">
@@ -29,12 +29,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-*{
+* {
   box-sizing: border-box;
 }
 .parent {
   margin: 0;
-  padding: 20px;
+  padding: 70px;
   height: 100%;
 }
 .allWrapper {
@@ -46,44 +46,49 @@ export default {
   margin: 0;
 }
 
-h1 {
+.title {
   margin: 0;
   text-align: center;
+  font-size: 40px;
 }
 
 .toDoListWrapper {
   list-style-type: none;
   margin: 0;
   padding: 10px;
+  border-radius: 5px;
   background-color: gainsboro;
   width: 100%;
+  height: 100%;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height: 100%;
-  border-radius: 5px;
 }
 
 .toDoThing {
   width: 100%;
 }
 
-label {
-  margin: 0;  
+.task {
+  margin: 0;
+  padding: 15px;
   display: flex;
   flex-direction: row;
-  padding: 5px;
-  justify-content: space-between;
   background-color: white;
   height: 40px;
   align-items: center;
+  justify-content: space-between;
+  font-size: medium;
+  font-weight: bold;
 }
 
 .Form {
   width: 100%;
+  height: 30px;
   display: flex;
   gap: 5px;
-  padding: 0px 5px;
+  padding: 0px 20px;
 }
 
 .Form-Text {
@@ -92,13 +97,35 @@ label {
   border-radius: 5px;
 }
 
-.AddButton{
-  background-color: skyblue;
-  border: skyblue;
+.AddButton {
+  background-color: blue;
+  border: blue;
   color: white;
   font-size: small;
   align-self: center;
   justify-self: center;
-  border-radius: 5px;
+  border-radius: 8px;
+  height: 100%;
+  width: 50px;
+}
+
+@media (max-width: 768px) {
+  .parent {
+    padding: 50px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+  .allWrapper {
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .task{
+    font-size: small;
+  }
 }
 </style>
