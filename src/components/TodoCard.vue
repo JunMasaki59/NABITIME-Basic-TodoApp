@@ -1,3 +1,16 @@
+<script setup>
+const toDoList = reactive([
+  {
+    title: "プログラミングテスト",
+    isDone: false,
+  },
+  {
+    title: "ランニング",
+    isDone: true,
+  },
+]);
+</script>
+
 <template>
   <div class="parent">
     <div class="allWrapper">
@@ -124,7 +137,7 @@ export default {
     margin: 0;
   }
 
-  .task{
+  .task {
     font-size: small;
   }
 }
