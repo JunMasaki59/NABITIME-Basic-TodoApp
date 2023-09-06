@@ -1,5 +1,6 @@
 <script setup>
-/*const toDoList = reactive([
+import { reactive } from "vue";
+const toDoList = reactive([
   {
     title: "プログラミングテスト",
     isDone: false,
@@ -8,7 +9,7 @@
     title: "ランニング",
     isDone: true,
   },
-]);*/
+]);
 </script>
 
 <template>
@@ -16,11 +17,12 @@
     <div class="allWrapper">
       <h1 class="title">ToDo</h1>
       <ul class="toDoListWrapper">
-        <li class="toDoThing">
-          <label class="task"> 期末試験 <input type="checkbox" name="toDo" class="checkbox" /> </label>
-        </li>
-        <li class="toDoThing">
-          <label class="task"> 宿題 <input type="checkbox" name="toDo" class="checkbox" /> </label>
+        <li class="toDoThing" v-for="(item, index) in toDoList" :key="index">
+          <label class="task">
+            {{ item.title }}
+            <input v-if="item.isDone" type="checkbox" name="toDo" class="checkbox" checked />
+            <input v-if="!item.isDone" type="checkbox" name="toDo" class="checkbox" />
+          </label>
         </li>
       </ul>
       <div class="Form">
