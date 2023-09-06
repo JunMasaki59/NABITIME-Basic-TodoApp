@@ -1,5 +1,5 @@
 <script setup>
-const toDoList = reactive([
+/*const toDoList = reactive([
   {
     title: "プログラミングテスト",
     isDone: false,
@@ -8,7 +8,7 @@ const toDoList = reactive([
     title: "ランニング",
     isDone: true,
   },
-]);
+]);*/
 </script>
 
 <template>
@@ -46,17 +46,23 @@ export default {
   box-sizing: border-box;
 }
 .parent {
+  display: flex;
+  flex-direction: row;
   margin: 0;
   padding: 70px;
   height: 100%;
+  width: 100%;
+  justify-content: center;
 }
 .allWrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  max-width: 1000px;
   height: 100%;
   margin: 0;
+  align-self: center;
 }
 
 .title {
