@@ -10,6 +10,13 @@ const toDoList = reactive([
     isDone: true,
   },
 ]);
+
+let newListTitle ="";
+
+const addList = ( item ) => {
+  toDoList.push({ title: item, isDone: false });
+  newListTitle = "";
+}
 </script>
 
 <template>
@@ -26,8 +33,8 @@ const toDoList = reactive([
         </li>
       </ul>
       <form class="Form">
-        <input type="text" name="addToDo" class="Form-Text" />
-        <input type="button" value="追加" name="AddButton" class="AddButton" />
+        <input type="text" name="addToDo" class="Form-Text" v-model="newListTitle" onkeypress="if(event.keyCode===13){event.returnValue=false} "/>
+        <input type="button" value="追加" name="AddButton" class="AddButton" @click="addList(newListTitle)" />
       </form>
     </div>
   </div>
