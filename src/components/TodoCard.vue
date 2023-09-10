@@ -25,10 +25,10 @@ const toDoList = reactive([
           </label>
         </li>
       </ul>
-      <div class="Form">
+      <form class="Form">
         <input type="text" name="addToDo" class="Form-Text" />
         <input type="button" value="追加" name="AddButton" class="AddButton" />
-      </div>
+      </form>
     </div>
   </div>
 </template>
