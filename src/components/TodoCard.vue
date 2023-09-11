@@ -17,6 +17,11 @@ const addList = ( item ) => {
   toDoList.push({ title: item, isDone: false });
   newListTitle = "";
 }
+
+const changeIsDone = (item) => {
+  item.isDone = !item.isDone;
+  console.log(item.isDone);
+}
 </script>
 
 <template>
@@ -24,11 +29,11 @@ const addList = ( item ) => {
     <div class="allWrapper">
       <h1 class="title">ToDo</h1>
       <ul class="toDoListWrapper">
-        <li class="toDoThing" v-for="(item, index) in toDoList" :key="index">
-          <label class="task">
+        <li v-for="(item, index) in toDoList" :key="index" class="didNotThing" :class="{ 'didThing' : item.isDone}">
+          <label class="task" >
             {{ item.title }}
-            <input v-if="item.isDone" type="checkbox" name="toDo" class="checkbox" checked />
-            <input v-if="!item.isDone" type="checkbox" name="toDo" class="checkbox" />
+            <input v-if="item.isDone" type="checkbox" name="toDo" class="checkbox" checked @click="changeIsDone(item)"/>
+            <input v-if="!item.isDone" type="checkbox" name="toDo" class="checkbox" @click="changeIsDone(item)"/>
           </label>
         </li>
       </ul>
@@ -94,8 +99,12 @@ export default {
   gap: 10px;
 }
 
-.toDoThing {
-  width: 100%;
+.didNotThing {
+  background-color: white;
+}
+
+.didThing {
+  background-color: aquamarine;
 }
 
 .task {
@@ -103,7 +112,6 @@ export default {
   padding: 15px;
   display: flex;
   flex-direction: row;
-  background-color: white;
   height: 40px;
   align-items: center;
   justify-content: space-between;
